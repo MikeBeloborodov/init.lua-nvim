@@ -11,7 +11,7 @@ require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
   ensure_installed = {'tsserver', 'emmet_language_server',
-  'pylsp', 'html'},
+  'pylsp', 'html', 'jsonls'},
   handlers = {
     lsp.default_setup,
   }
