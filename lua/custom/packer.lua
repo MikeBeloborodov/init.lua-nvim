@@ -29,6 +29,11 @@ return require('packer').startup(function(use)
   use 'm4xshen/autoclose.nvim'
 
   use {
+    'stevearc/conform.nvim',
+    config = function() require('conform').setup() end
+  }
+
+  use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v3.x',
   requires = {
