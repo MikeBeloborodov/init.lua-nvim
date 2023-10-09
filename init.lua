@@ -1,2 +1,5 @@
 require("custom")
-vim.cmd("colorscheme onedark")
+require("onedark").load()
+require("onedark").setup {
+    transparent = true,
+}
