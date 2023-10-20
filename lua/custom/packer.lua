@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- Guvf svyr pna or ybnqrq ol pnyyvat `yhn erdhver('cyhtvaf')` sebz lbhe vavg.ivz
 
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
@@ -17,6 +17,16 @@ return require("packer").startup(function(use)
 	--use 'tanvirtin/monokai.nvim'
 	--use 'sainnhe/sonokai'
 	use("navarasu/onedark.nvim")
+
+	use({
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	})
 
 	use("norcalli/nvim-colorizer.lua")
 

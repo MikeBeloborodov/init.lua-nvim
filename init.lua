@@ -5,3 +5,4 @@ require("onedark").setup({
 })
 require("autoclose").setup()
 require("colorizer").setup()
+vim.opt.wrap = true

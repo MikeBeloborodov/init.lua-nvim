@@ -6,6 +6,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp_action.luasnip_supertab(),
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
 })
 
@@ -19,7 +20,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
-	ensure_installed = { "tsserver", "emmet_language_server", "pylsp", "html", "jsonls", "cssls" },
+	ensure_installed = { "tsserver", "emmet_language_server", "pylsp", "html", "jsonls", "cssls", "rust_analyzer" },
 	handlers = {
 		lsp.default_setup,
 	},

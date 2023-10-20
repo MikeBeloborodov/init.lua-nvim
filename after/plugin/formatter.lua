@@ -10,6 +10,8 @@ require("conform").setup({
 		css = { "prettier" },
 		scss = { "prettier" },
 		html = { "prettier" },
+		json = { "prettier" },
+		rust = { "rustfmt" },
 	},
 })
 
