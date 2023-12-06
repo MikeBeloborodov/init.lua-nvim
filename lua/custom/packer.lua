@@ -40,6 +40,9 @@ return require("packer").startup(function(use)
 
 	use("m4xshen/autoclose.nvim")
 
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("MunifTanjim/prettier.nvim")
+
 	use({
 		"stevearc/conform.nvim",
 		config = function()

@@ -12,6 +12,9 @@ require("conform").setup({
 		html = { "prettier" },
 		json = { "prettier" },
 		rust = { "rustfmt" },
+		vue = { "prettier" },
+		typescriptreact = { "prettier" },
+		javascriptreact = { "prettier" },
 	},
 })
 

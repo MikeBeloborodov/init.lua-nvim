@@ -1,38 +1,3 @@
-require("custom")
-require("onedark").load()
-require("onedark").setup({
-	transparent = true,
-})
-require("autoclose").setup()
-require("colorizer").setup()
-vim.opt.wrap = true
-local prettier = require("prettier")
-prettier.setup({
-	bin = "prettierd",
-	filetypes = {
-		"css",
-		"html",
-		"javascript",
-		"json",
-		"javascriptreact",
-		"scss",
-		"typescript",
-		"typescriptreact",
-	},
-	["null-ls"] = {
-		condition = function()
-			return prettier.config_exists({
-				-- if `false`, skips checking `package.json` for `"prettier"` key
-				check_package_json = true,
-			})
-		end,
-		runtime_condition = function(params)
-			-- return false to skip running prettier
-			return true
-		end,
-		timeout = 5000,
-	},
-})
 local null_ls = require("null-ls")
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
