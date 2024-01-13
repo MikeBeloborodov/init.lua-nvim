@@ -7,6 +7,18 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+	use("lewis6991/gitsigns.nvim")
+
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
+
+	use("mattkubej/jest.nvim")
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.3",
@@ -49,6 +61,36 @@ return require("packer").startup(function(use)
 			require("conform").setup()
 		end,
 	})
+
+	use({
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!:).
+		run = "make install_jsregexp",
+	})
+
+	use("rafamadriz/friendly-snippets")
+
+	use({ "L3MON4D3/LuaSnip" })
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("cmp").setup({
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
+
+				sources = {
+					{ name = "luasnip" },
+					-- more sources
+				},
+			})
+		end,
+	})
+	use({ "saadparwaiz1/cmp_luasnip" })
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
