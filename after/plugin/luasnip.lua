@@ -5,7 +5,7 @@ local i = ls.insert_node
 
 ls.add_snippets("typescript", {
 	s("ittest", {
-		t('it("'),
+		t('it("should '),
 		i(1),
 		t('", () => expect('),
 		i(2),
@@ -17,5 +17,10 @@ ls.add_snippets("typescript", {
 		t("console.log("),
 		i(1),
 		t(");"),
+	}),
+	s("desctest", {
+		t('describe("test cases", () => {'),
+		i(1),
+		t("})"),
 	}),
 })

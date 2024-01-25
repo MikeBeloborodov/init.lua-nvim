@@ -15,6 +15,9 @@ require("conform").setup({
 		vue = { "prettier" },
 		typescriptreact = { "prettier" },
 		javascriptreact = { "prettier" },
+		markdown = { "prettier" },
+		bash = { "beautysh" },
+		sh = { "beautysh" },
 	},
 })
 

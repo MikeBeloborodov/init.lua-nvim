@@ -1,6 +1,9 @@
 local lsp = require("lsp-zero").preset({})
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
+local ls = require("luasnip")
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
@@ -8,6 +11,24 @@ cmp.setup({
 		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 	}),
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" }, -- For luasnip users.
+	}, {
+		{ name = "buffer" },
+	}),
+})
+
+require("luasnip.loaders.from_lua").load({ paths = "~./config/nvim/snippets" })
+ls.config.set_config({
+	history = true,
+	updateevents = "TextChanged,TextCHangedI",
+	enable_autosnippets = true,
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -29,6 +50,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"rust_analyzer",
 		"prismals",
+		"lua_ls",
 	},
 	handlers = {
 		lsp.default_setup,
